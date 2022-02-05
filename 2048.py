@@ -7,6 +7,10 @@ def displayBoard():
     for line in board:
         print(*line, end="\n")
 
+def game_over():
+    print("GAME OVER !.. you lose")
+    exit()
+
 
 def startPlay():
     print("-----------2048 GAME--------------")
@@ -30,12 +34,23 @@ def startPlay():
                 sumDown()
                 displayBoard()
             else:
-                print("Enter no. between 1-4")
+                print("DIRECTION NOT DEFINED ! RE-ENTER !")
         except ValueError:
             print("WRONG INPUT. PLEASE TYPE AGAIN!")
+        for i in range(4):
+            for j in range(4):
+                if board[i][j] == 2048:
+                    print("CONGRATULATIONS !!!! YOU WON")
+                    win = False
 
 
 def addDefault():
+    gameOver = True
+    for i in range(4):
+        if board[i].count(0) != 0:
+            gameOver = False
+    if gameOver:
+        game_over()
     r = random.randint(0, 3)
     c = random.randint(0, 3)
     default = random.randint(1, 2) * 2
