@@ -5,7 +5,7 @@ board = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 def displayBoard():
     addDefault()
     for line in board:
-        print(*line, end="\n")
+        print(*line, end="\n\n", sep="\t")
 
 def game_over():
     print("GAME OVER !.. you lose")
