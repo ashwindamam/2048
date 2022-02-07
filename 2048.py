@@ -1,17 +1,24 @@
 import random
 
+
+#Initializing the main board of the game
 board = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
+
+#Function for displaying the board
 def displayBoard():
     addDefault()
     for line in board:
         print(*line, end="\n\n", sep="\t")
 
+
+#Function if player loses
 def game_over():
     print("GAME OVER !.. you lose")
     exit()
 
 
+#Function to start the game
 def startPlay():
     print("-----------2048 GAME--------------")
     addDefault()
@@ -44,6 +51,7 @@ def startPlay():
                     win = False
 
 
+#Function which adds either 2 or 4 n the board
 def addDefault():
     gameOver = True
     for i in range(4):
@@ -61,6 +69,7 @@ def addDefault():
         addDefault()
 
 
+#Function which compresses all the cells to the left
 def swipeLeft():
     for i in range(4):
         for j in range(1, 4):
@@ -87,6 +96,7 @@ def swipeLeft():
                     board[i][1] = 0
 
 
+#Function performing complete left swipe
 def sumLeft():
     swipeLeft()
     for i in range(4):
@@ -97,6 +107,7 @@ def sumLeft():
     swipeLeft()
 
 
+#Function performing complete right swipe
 def sumRight():
     for i in range(4):
         board[i].reverse()
@@ -105,6 +116,7 @@ def sumRight():
         board[i].reverse()
 
 
+#Function which compresses all the cells in the down direction
 def swipeDown():
     for i in range(2, -1, -1):
         for j in range(4):
@@ -131,6 +143,7 @@ def swipeDown():
                     board[2][j] = 0
 
 
+#Function performing complete down swipe
 def sumDown():
     swipeDown()
     for i in range(2, -1, -1):
@@ -141,6 +154,7 @@ def sumDown():
     swipeDown()
 
 
+#Function performing complete up swipe
 def sumUp():
     board.reverse()
     sumDown()
@@ -153,3 +167,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
